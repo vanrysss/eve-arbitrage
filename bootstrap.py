@@ -23,7 +23,7 @@ conn = psycopg2.connect(conn_string)
 cursor = conn.cursor()
 print("Connected to postgres!")
 h = httplib2.Http(".cache")
-persist regional data
+#persist regional data
 regions_response, content = h.request("https://esi.tech.ccp.is/latest/universe/regions/?datasource=tranquility", "GET")
 regions = literal_eval(content.decode('utf-8'))
 print("Queried Regions list from CCP!")
