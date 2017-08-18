@@ -19,3 +19,15 @@ SELECT m.price,m.volume_remain, s.name FROM market_order m
 ORDER BY m.price DESC LIMIT 5;
 
 SELECT * FROM market_order WHERE is_buy_order = FALSE ORDER BY price ASC LIMIT 1;
+
+SELECT sys.name FROM star_system sys
+    JOIN constellation c ON sys.eve_constellation_id = c.eve_constellation_id
+    JOIN (SELECT * FROM region WHERE name ='Curse') AS r
+    ON c.eve_region_id = r.eve_region_id
+    WHERE sys.security_status > -0.1;
+
+SELECT r.name,stat.name FROM station stat    
+    JOIN star_system s ON stat.eve_system_id = s.eve_system_id
+    JOIN constellation c ON s.eve_constellation_id = c.eve_constellation_id
+    JOIN region r ON c.eve_region_id = r.eve_region_id
+    WHERE stat.eve_station_id = 60014945;

@@ -1,0 +1,1 @@
+SELECT TYPE_ID FROM item WHERE id=%s;
